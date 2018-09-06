@@ -70,7 +70,6 @@ services:
       - frontend
     expose:
       - "8080"
-      - "50000"
     volumes:
       # Ensure Jenkins content persist between restarts.
       - vol-jenkins-content:/var/jenkins_home 
