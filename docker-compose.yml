@@ -70,9 +70,13 @@ services:
       - frontend
     expose:
       - "8080"
+      # remove the '#' below only if you want access from remote JNLP agents
+      #- "50000"
     volumes:
       # Ensure Jenkins content persist between restarts.
       - vol-jenkins-content:/var/jenkins_home 
+      # remove the '#' if you want to run blueocean docker agents (advanced only)
+      - /var/run/docker.sock:/var/run/docker.sock
     labels:
       - "traefik.docker.network=frontend"
       - "traefik.enable=true"
