@@ -41,7 +41,7 @@ services:
       - "traefik.docker.network=frontend"
       - "traefik.enable=true"
       - "traefik.frontend.rule=Host:${TRAEFIK_DOMAINS}; PathPrefixStrip:/traefik"
-      - "traefik.port=8080"
+      - "traefik.port=8090"
       - "traefik.protocol=http"
       # Remove next line to disable login prompt for the dashboard.
       - "traefik.frontend.auth.basic=${BASIC_AUTH}"
