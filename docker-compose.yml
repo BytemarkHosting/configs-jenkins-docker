@@ -41,7 +41,7 @@ services:
       - "traefik.docker.network=frontend"
       - "traefik.enable=true"
       - "traefik.frontend.rule=Host:${TRAEFIK_DOMAINS}; PathPrefixStrip:/traefik"
-      - "traefik.port=8090"
+      - "traefik.port=8080"
       - "traefik.protocol=http"
       # Remove next line to disable login prompt for the dashboard.
       - "traefik.frontend.auth.basic=${BASIC_AUTH}"
@@ -69,19 +69,19 @@ services:
       - backend
       - frontend
     expose:
-      - "8080"
+      - "80"
       # remove the '#' below only if you want access from remote JNLP agents
       #- "50000"
     volumes:
       # Ensure Jenkins content persist between restarts.
       - vol-jenkins-content:/var/jenkins_home 
       # remove the '#' if you want to run blueocean docker agents (advanced only)
-      - /var/run/docker.sock:/var/run/docker.sock
+      #- /var/run/docker.sock:/var/run/docker.sock
     labels:
       - "traefik.docker.network=frontend"
       - "traefik.enable=true"
       - "traefik.frontend.rule=Host:${JENKINS_DOMAINS}"
-      - "traefik.port=8080"
+      - "traefik.port=80"
       - "traefik.protocol=http"
 
 
