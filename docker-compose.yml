@@ -77,6 +77,8 @@ services:
       - vol-jenkins-content:/var/jenkins_home 
       # remove the '#' if you want to run blueocean docker agents (advanced only)
       #- /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - http_port=80
     labels:
       - "traefik.docker.network=frontend"
       - "traefik.enable=true"
